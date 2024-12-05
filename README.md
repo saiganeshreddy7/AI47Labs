@@ -1,6 +1,3 @@
-Here’s the enhanced and more clear version of your `README.md` file:
-
----
 
 # AI47Labs Assignment: Private GPT Model for Hospital Data
 
@@ -14,7 +11,8 @@ This repository contains:
 - A Google Colab notebook for testing and interacting with the trained model.
 - Documentation detailing the project structure and usage.
 
-**Important Note:** The pre-trained Private GPT model is stored separately in Google Drive and is not included in this repository. A public access link to download the model is provided below.
+**Important Note:** 
+The pre-trained Private GPT model is stored separately in Google Drive and is not included in this repository. A public access link to download the model is provided below.
 
 ---
 
