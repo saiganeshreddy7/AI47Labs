@@ -4,7 +4,8 @@
 
 ## Project Overview
 
-This project is part of the AI47Labs assignment to build a web scraping pipeline and train a Private GPT model. The goal is to scrape data from the top hospital websites, process and clean this data, and train a GPT model to answer questions about doctors, treatments, and departments.
+This project is part of the AI47Labs assignment to build a web scraping pipeline and train a Private GPT model. 
+The goal is to scrape data from the top hospital websites, process and clean this data, and train a GPT model to answer questions about doctors, treatments, and departments.
 
 This repository contains:
 - A Python script for data scraping, cleaning, and model training.
@@ -17,6 +18,9 @@ This repository contains:
 ## How to Use
 
 ### 1. Clone the Repository
+
+git clone <your-repository-link>
+cd <repository-folder>
 
 
 ### 2. Access the Google Colab Notebook
