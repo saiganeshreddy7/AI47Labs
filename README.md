@@ -1,117 +1,131 @@
+Here’s the enhanced and more clear version of your `README.md` file:
 
+---
 
 # AI47Labs Assignment: Private GPT Model for Hospital Data
 
 ## Project Overview
 
-This project is part of the AI47Labs assignment to build a web scraping pipeline and train a Private GPT model. 
-The goal is to scrape data from the top hospital websites, process and clean this data, and train a GPT model to answer questions about doctors, treatments, and departments.
+This project is part of the AI47Labs assignment to build a web scraping pipeline and train a Private GPT model.  
+The objective is to scrape data from top hospital websites, clean and process this data, and train a GPT model capable of answering questions about doctors, treatments, and departments.
 
 This repository contains:
-- A Python script for data scraping, cleaning, and model training.
-- The trained Private GPT model (stored in Google Drive).
-- A Google Colab notebook for interacting with the model.
-- Documentation on using the model and its limitations.
+- Python scripts for web scraping, data cleaning, and model training.
+- A Google Colab notebook for testing and interacting with the trained model.
+- Documentation detailing the project structure and usage.
+
+**Important Note:** The pre-trained Private GPT model is stored separately in Google Drive and is not included in this repository. A public access link to download the model is provided below.
 
 ---
 
-## How to Use
+## Repository Link
 
-### 1. Clone the Repository
+The complete project, including all Python scripts, the Colab notebook, and documentation (excluding the pre-trained model), is hosted on GitHub. Clone the repository using the link below:  
+[AI47Labs Project Repository](https://github.com/saiganeshreddy7/AI47labs/)
 
-git clone <your-repository-link>
-cd <repository-folder>
+---
 
+## Model Access
+
+The pre-trained GPT model and tokenizer files are **not stored on GitHub**. Instead, they are available on Google Drive with public access. To use the model:
+
+1. **Download the model files from Google Drive:**  
+   [Download Pre-trained Model](https://drive.google.com/drive/folders/1UfiUA5o3-9YsizbBKayq7BnmGUKqE3Ou?usp=drive_link)
+
+2. Once downloaded, place the model files in your Colab environment under the path:  
+   ```
+   /content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned
+   ```
+
+3. Alternatively, directly access the Google Drive folder in the Colab notebook using the provided link.
+
+---
+
+## How to Use the Project
+
+### 1. Clone the GitHub Repository
+```bash
+git clone https://github.com/saiganeshreddy7/AI47labs.git
+cd AI47labs
+```
 
 ### 2. Access the Google Colab Notebook
-1. Open the Colab notebook: [Google Colab Link](<https://colab.research.google.com/drive/1gH41qR8tS4bFyHEK4mXDv1klmsqCRdZd?usp=drive_link>).
-2. Mount your Google Drive in the notebook to load the pre-trained model.
-   - Follow the prompts to grant access to your Google Drive.
-
-
-
-
-# Model Access
-The pre-trained GPT model and tokenizer files are stored in a publicly accessible Google Drive folder.
-Follow the steps below to use the model:
-
-Access the model files here: Download Pre-trained Model from Google Drive.
-(https://drive.google.com/drive/folders/1UfiUA5o3-9YsizbBKayq7BnmGUKqE3Ou?usp=drive_link)
-
-Download the folder gpt2-finetuned to your local system or directly into your Google Drive if you are using the Colab notebook.
-Place the downloaded folder in the appropriate directory of your Colab environment (or configure the path in your local setup):
-
-/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned
-
-Ensure your code references the correct path to load the model. For example:
-
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
-
-# Load model and tokenizer from the provided directory
-model = GPT2LMHeadModel.from_pretrained("/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned")
-tokenizer = GPT2Tokenizer.from_pretrained("/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned")
-
-
-
+1. Open the Colab notebook: [Google Colab Link](https://colab.research.google.com/drive/1gH41qR8tS4bFyHEK4mXDv1klmsqCRdZd?usp=drive_link).
+2. Mount your Google Drive to access or upload the pre-trained model.
 
 ### 3. Load and Test the Model
 In the Colab notebook:
-1. Run the cells to set up the environment and load the model.
-2. Provide an input query, such as:
+1. Run the setup cells to install dependencies and mount Google Drive.
+2. Use the following snippet to load the model:
+   ```python
+   from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+   # Load model and tokenizer
+   model = GPT2LMHeadModel.from_pretrained("/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned")
+   tokenizer = GPT2Tokenizer.from_pretrained("/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned")
+   ```
+
+3. Provide a sample input query, such as:
    ```python
    input_text = "What are the specializations of Dr. Naresh Trehan?"
+   input_ids = tokenizer.encode(input_text, return_tensors='pt')
+
+   # Generate output
+   output = model.generate(input_ids, max_length=100, num_return_sequences=1)
+   generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+   print(generated_text)
    ```
-3. The model will generate a response based on the training data.
 
 ---
 
 ## Features
 
-- **Web Scraping**: Extracts hospital, doctor, and treatment data from top 50 hospital websites.
-- **Data Cleaning**: Prepares raw data for effective GPT model training.
-- **Private GPT Model**: Fine-tuned GPT-2 model on healthcare-specific data.
-- **Interactive Colab Notebook**: User-friendly interface to test the model.
+- **Web Scraping**: Automated scraping of hospital, doctor, and treatment data from top websites.
+- **Data Cleaning**: Structured formatting of raw data for better model performance.
+- **Private GPT Model**: Fine-tuned GPT-2 model trained on healthcare-specific data.
+- **Interactive Notebook**: A user-friendly Google Colab notebook for testing and generating responses.
 
 ---
 
 ## Limitations
 
-1. **Limited Training Data**: The model is trained on a small dataset scraped from hospital websites. It may:
-   - Produce incomplete or irrelevant answers.
-   - Repeat input as the output in some cases.
+1. **Training Data Constraints**: 
+   - The model is trained on a small dataset and may provide incomplete, irrelevant, or repetitive answers.
 
-2. **Model Accuracy**: 
-   - Since the model is fine-tuned for a short duration, its accuracy might not meet professional-grade standards.
-   - Efforts to improve accuracy will be a focus in future versions.
+2. **Accuracy**:
+   - The model's accuracy is limited due to short training time and a narrow dataset.
+   - Efforts to improve accuracy will be the focus of future updates.
 
-3. **Bias and Hallucinations**: The model might:
-   - Generate biased answers based on the data.
-   - Provide fabricated or inaccurate responses.
+3. **Bias and Hallucinations**:
+   - The model might produce biased or fabricated answers based on limited training data.
 
-4. **Scope of Responses**:
-   - Restricted to the domain of the training data (hospital-specific information).
-   - May not handle out-of-scope questions effectively.
+4. **Scope**:
+   - The model is domain-specific and may struggle with questions outside the hospital or healthcare context.
 
 ---
 
 ## Future Improvements
 
-- **Enhanced Data Collection**: Expanding the dataset by including more hospitals and broader information.
-- **Longer Training Time**: Improving the accuracy and quality of responses by training the model for extended periods.
-- **Model Evaluation**: Incorporating evaluation metrics to measure performance and identify areas for improvement.
-- **Response Validation**: Adding filters to reduce incorrect or repetitive outputs.
+- **Expanded Dataset**: Scraping and incorporating data from additional hospitals for a broader and more accurate model.
+- **Extended Training**: Increasing the training duration to enhance accuracy and reduce repetitive or incorrect outputs.
+- **Evaluation Metrics**: Adding metrics to measure the model's performance and identify weaknesses.
+- **Response Filters**: Implementing checks to minimize incorrect or repetitive responses.
 
 ---
 
 ## How to Contribute
 
-Contributions to improve the model's accuracy, expand its dataset, or refine its training process are welcome! Please fork the repository, make your changes, and submit a pull request.
+Contributions are welcome to improve the scraping scripts, enhance the dataset, refine the model, or improve documentation. To contribute:  
+1. Fork the repository on GitHub.  
+2. Make your changes and submit a pull request.  
 
 ---
 
 ## Contact
 
-For questions or feedback, reach out at saiganeshreddygana@gmail.com.
+For questions or feedback, reach out via email: **saiganeshreddygana@gmail.com**.
 
 --- 
 
+This version improves clarity, addresses your requirements about the Google Drive link, and ensures users understand how to access and use the model effectively.
