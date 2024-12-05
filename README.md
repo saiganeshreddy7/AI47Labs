@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This project is part of the AI47Labs assignment to build a web scraping pipeline and train a Private GPT model. The goal is to scrape data from the top 50 hospital websites, process and clean this data, and train a GPT model to answer questions about doctors, treatments, and departments.
+This project is part of the AI47Labs assignment to build a web scraping pipeline and train a Private GPT model. The goal is to scrape data from the top hospital websites, process and clean this data, and train a GPT model to answer questions about doctors, treatments, and departments.
 
 This repository contains:
 - A Python script for data scraping, cleaning, and model training.
@@ -17,10 +17,7 @@ This repository contains:
 ## How to Use
 
 ### 1. Clone the Repository
-```bash
-git clone <your-repository-link>
-cd <repository-folder>
-```
+
 
 ### 2. Access the Google Colab Notebook
 1. Open the Colab notebook: [Google Colab Link](<https://colab.research.google.com/drive/1gH41qR8tS4bFyHEK4mXDv1klmsqCRdZd?usp=drive_link>).
@@ -30,8 +27,9 @@ cd <repository-folder>
 
 
 
-Model Access
-The pre-trained GPT model and tokenizer files are stored in a publicly accessible Google Drive folder. Follow the steps below to use the model:
+# Model Access
+The pre-trained GPT model and tokenizer files are stored in a publicly accessible Google Drive folder.
+Follow the steps below to use the model:
 
 Access the model files here: Download Pre-trained Model from Google Drive.
 (https://drive.google.com/drive/folders/1UfiUA5o3-9YsizbBKayq7BnmGUKqE3Ou?usp=drive_link)
