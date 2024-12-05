@@ -23,9 +23,34 @@ cd <repository-folder>
 ```
 
 ### 2. Access the Google Colab Notebook
-1. Open the Colab notebook: [Google Colab Link](<your-shared-notebook-link>).
+1. Open the Colab notebook: [Google Colab Link](<https://colab.research.google.com/drive/1gH41qR8tS4bFyHEK4mXDv1klmsqCRdZd?usp=drive_link>).
 2. Mount your Google Drive in the notebook to load the pre-trained model.
    - Follow the prompts to grant access to your Google Drive.
+
+
+
+
+Model Access
+The pre-trained GPT model and tokenizer files are stored in a publicly accessible Google Drive folder. Follow the steps below to use the model:
+
+Access the model files here: Download Pre-trained Model from Google Drive.
+(https://drive.google.com/drive/folders/1UfiUA5o3-9YsizbBKayq7BnmGUKqE3Ou?usp=drive_link)
+
+Download the folder gpt2-finetuned to your local system or directly into your Google Drive if you are using the Colab notebook.
+Place the downloaded folder in the appropriate directory of your Colab environment (or configure the path in your local setup):
+
+/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned
+
+Ensure your code references the correct path to load the model. For example:
+
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+# Load model and tokenizer from the provided directory
+model = GPT2LMHeadModel.from_pretrained("/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned")
+tokenizer = GPT2Tokenizer.from_pretrained("/content/drive/MyDrive/Model/modelpretrsinded/gpt2-finetuned")
+
+
+
 
 ### 3. Load and Test the Model
 In the Colab notebook:
