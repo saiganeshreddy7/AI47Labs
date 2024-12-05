@@ -124,6 +124,3 @@ Contributions are welcome to improve the scraping scripts, enhance the dataset, 
 
 For questions or feedback, reach out via email: **saiganeshreddygana@gmail.com**.
 
---- 
-
-This version improves clarity, addresses your requirements about the Google Drive link, and ensures users understand how to access and use the model effectively.
